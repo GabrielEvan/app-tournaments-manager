@@ -1,6 +1,9 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+
+    <Button type="primary">Primary Button</Button>
+
     <p>
       For a guide and recipes on how to configure / customize this project,<br />
       check out the
@@ -103,8 +106,11 @@
 </template>
 
 <script>
+import Button from "ant-design-vue/lib/button";
+
 export default {
   name: "HelloWorld",
+  components: { Button },
   props: {
     msg: String
   }
