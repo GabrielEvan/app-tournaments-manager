@@ -5,6 +5,7 @@
   "scripts": {
     "start": "nodemon ./bin/www",
     "db:migrate": "sequelize-cli db:migrate"
+
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
