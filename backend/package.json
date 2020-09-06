@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www",
-    "db:migrate": "sequelize-cli db:migrate"
-
+    "start": "nodemon ./bin/www --ignore __tests__",
+    "db:migrate": "sequelize-cli db:migrate",
+    "test": "jest"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -19,6 +19,7 @@
     "sqlite3": "^5.0.0"
   },
   "devDependencies": {
+    "jest": "^26.4.2",
     "nodemon": "^2.0.4",
     "sequelize-cli": "^6.2.0"
   }

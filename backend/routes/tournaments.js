@@ -12,7 +12,7 @@ router.get('', (req, res) => {
     });
 });
 
-/* DELETE  tournament */
+/* DELETE tournament */
 router.delete('/:id', (req, res) => {
   return db.Tournament.destroy({
     where: {
