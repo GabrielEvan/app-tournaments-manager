@@ -12,7 +12,7 @@ router.get('', (req, res) => {
     });
 });
 
-/* DELETE create tournament */
+/* DELETE  tournament */
 router.delete('/:id', (req, res) => {
   return db.Tournament.destroy({
     where: {
@@ -21,7 +21,7 @@ router.delete('/:id', (req, res) => {
   })
     .then(() => res.send())
     .catch((err) => {
-      console.log('There was an error while deleating tournament', JSON.stringify(err))
+      console.log('There was an error while deleting tournament', JSON.stringify(err))
       return res.send(err)
     })
 });
