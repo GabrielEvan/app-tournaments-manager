@@ -12,4 +12,34 @@ router.get('', (req, res) => {
     });
 });
 
+/* DELETE create tournament */
+router.delete('/:id', (req, res) => {
+  return db.Tournament.destroy({
+    where: {
+      id: req.params.id
+    }
+  })
+    .then(() => res.send())
+    .catch((err) => {
+      console.log('There was an error while deleating tournament', JSON.stringify(err))
+      return res.send(err)
+    })
+});
+
+
+/* POST create tournament */
+router.post('', (req, res) => {
+  return db.Tournament.create({
+    id: req.body.id,
+    name: req.body.name,
+    players: req.body.players
+  })
+    .then(() => res.send())
+    .catch((err) => {
+      console.log('There was an error while creating tournament', JSON.stringify(err))
+      return res.send(err)
+    });
+});
+
+
 module.exports = router;
