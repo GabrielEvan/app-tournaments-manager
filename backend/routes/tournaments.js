@@ -41,5 +41,21 @@ router.post('', (req, res) => {
     });
 });
 
+/* PATCH update tournament */
+router.patch('/:id', (req, res) => {
+  return db.Tournament.update({
+      id: req.body.id,
+      name: req.body.name,
+      players: req.body.players
+    },
+    {where: {id: req.params.id}}
+  )
+    .then(() => res.send(200))
+    .catch((err) => {
+      console.log('There was an error while updating tournament', JSON.stringify(err))
+      return res.send(err)
+    });
+});
+
 
 module.exports = router;
