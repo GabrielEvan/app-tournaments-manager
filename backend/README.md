@@ -21,6 +21,13 @@ $ cd backend
 $ npm install
 ```
 
+To run tests
+
+```sh
+$ npm run test
+```
+
+
 For start the server
 
 ```sh
@@ -32,9 +39,3 @@ $ set DEBUG=myapp:* & npm start
 ```
 
 Next, access : http://localhost:3000/ in your browser to run the app.
-
-To run test
-
-```sh
-$ npm run test
-```
