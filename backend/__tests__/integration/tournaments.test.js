@@ -4,7 +4,7 @@ const app = require('../../app');
 
 describe('endpoint DELETE on route /tournament/{id}', () =>{
   it('should delete tournament on database', async() => {
-    const user = await db.Tournament.create({
+    await db.Tournament.create({
       id: 1,
       name: "Nome Teste",
       players: 1
@@ -20,11 +20,6 @@ describe('endpoint DELETE on route /tournament/{id}', () =>{
 
 describe('endpoint PATCH on route /tournament/{id}', () =>{
   it('should patch tournament on database', async() => {
-    const user = await db.Tournament.create({
-      id: 10,
-      name: 'Nome Teste',
-      players: 10
-    })
 
     const response = await request(app)
       .patch('/tournaments/10')
@@ -32,13 +27,12 @@ describe('endpoint PATCH on route /tournament/{id}', () =>{
         name: 'Novo Nome'
       })
 
-    tournament = db.Tournament.findOne({
+    tournament = await db.Tournament.findOne({
       where: {
         id: 10
       }
     })
 
-    expect(tournament.name).toBe('Novo nome');
-    expect(response.status).toBe(200);
+    expect(tournament.name).toBe('Novo Nome');
   });
 });
