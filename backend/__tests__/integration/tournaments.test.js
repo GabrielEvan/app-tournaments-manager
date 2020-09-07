@@ -17,3 +17,28 @@ describe('endpoint DELETE on route /tournament/{id}', () =>{
     expect(response.status).toBe(200);
   });
 });
+
+describe('endpoint PATCH on route /tournament/{id}', () =>{
+  it('should patch tournament on database', async() => {
+    const user = await db.Tournament.create({
+      id: 10,
+      name: "Nome Teste",
+      players: 10
+    })
+
+    const response = await request(app)
+      .patch('/tournaments/10')
+      .send({
+        name: "Novo Nome"
+      })
+
+    tournament = db.Tournament.findOne({
+      where: {
+        id: 10
+      }
+    })
+
+    expect(tournament.id).toBe(10);
+    expect(response.status).toBe(200);
+  });
+});
