@@ -22,14 +22,14 @@ describe('endpoint PATCH on route /tournament/{id}', () =>{
   it('should patch tournament on database', async() => {
     const user = await db.Tournament.create({
       id: 10,
-      name: "Nome Teste",
+      name: 'Nome Teste',
       players: 10
     })
 
     const response = await request(app)
       .patch('/tournaments/10')
       .send({
-        name: "Novo Nome"
+        name: 'Novo Nome'
       })
 
     tournament = db.Tournament.findOne({
@@ -38,7 +38,7 @@ describe('endpoint PATCH on route /tournament/{id}', () =>{
       }
     })
 
-    expect(tournament.id).toBe(10);
+    expect(tournament.name).toBe('Novo nome');
     expect(response.status).toBe(200);
   });
 });
